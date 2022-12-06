@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
+type CounterProps = { initialCount: number };
+
+const Counter = ({ initialCount }: CounterProps) => {
+  const [count, setCount] = useState<number>(initialCount);
 
   const increment = () => {
     setCount((prev) => prev + 1);
@@ -22,7 +24,7 @@ const Counter = () => {
   return (
     <div>
       <h1>
-        Count: <p>{count}</p>
+        Count: <p data-testid="count">{count}</p>
       </h1>
       <div>
         <button onClick={increment}>Increment</button>
